@@ -8,19 +8,32 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/cloud1"
+        android:id="@+id/studyTimeCloud"
         android:layout_width="298dp"
         android:layout_height="223dp"
         android:layout_marginStart="166dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="26dp"
         android:contentDescription="@string/study_time"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cloud2"
+        app:layout_constraintTop_toBottomOf="@+id/breakTimeCloud"
         app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
+
+    <EditText
+        android:id="@+id/sutdyTimeInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="64dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/study_time_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/studyTimeCloud"
+        app:layout_constraintStart_toStartOf="@+id/studyTimeCloud" />
 
     <TextView
         android:id="@+id/Welcome"
@@ -42,20 +55,33 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/cloud2"
+        android:id="@+id/breakTimeCloud"
         android:layout_width="326dp"
         android:layout_height="206dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="19dp"
         android:contentDescription="@string/break_time"
-        app:layout_constraintEnd_toStartOf="@+id/cloud1"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintEnd_toStartOf="@+id/studyTimeCloud"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Welcome"
         app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
 
+    <EditText
+        android:id="@+id/breakTimeInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="60dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/break_time_hint"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="@+id/breakTimeCloud"
+        app:layout_constraintEnd_toEndOf="@+id/breakTimeCloud" />
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/start"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="167dp"
         android:layout_height="55dp"
@@ -74,6 +100,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cloud1" />
+        app:layout_constraintTop_toBottomOf="@+id/studyTimeCloud" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

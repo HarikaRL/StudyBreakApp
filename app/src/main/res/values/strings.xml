@@ -3,5 +3,7 @@
     <string name="welcome">Welcome!</string>
     <string name="start">Start</string>
     <string name="study_time">Enter study time here</string>
+    <string name="study_time_hint">Enter study time here</string>
     <string name="break_time">Enter break time here</string>
+    <string name="break_time_hint">Enter break time here</string>
 </resources>
