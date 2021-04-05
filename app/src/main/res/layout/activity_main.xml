@@ -4,15 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#8603A9F4"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/cloud1"
+        android:layout_width="298dp"
+        android:layout_height="223dp"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="26dp"
+        android:contentDescription="@string/study_time"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cloud2"
+        app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
+
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/Welcome"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="85dp"
+        android:fontFamily="monospace"
+        android:text="@string/welcome"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cloud2"
+        android:layout_width="326dp"
+        android:layout_height="206dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="19dp"
+        android:contentDescription="@string/break_time"
+        app:layout_constraintEnd_toStartOf="@+id/cloud1"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Welcome"
+        app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="167dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="92dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="monospace"
+        android:text="@string/start"
+        android:textAlignment="center"
+        android:textColor="#8603A9F4"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cloud1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
