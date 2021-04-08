@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">StudyBreakApp</string>
+
+    <string name="goals_heading">GOALS</string>
+
+    <string name="home_button_text">Home</string>
+
+    <string name="coin_count_label">Coin count:</string>
+
+    <string name="sample_image_label">Sample image</string>
+
+    <string name="studytime_label">Time to study</string>
+
     <string name="welcome">Welcome!</string>
     <string name="start">Start</string>
     <string name="study_time">Enter study time here</string>
     <string name="study_time_hint">Enter study time here</string>
     <string name="break_time">Enter break time here</string>
     <string name="break_time_hint">Enter break time here</string>
+
+
 </resources>
