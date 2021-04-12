@@ -18,5 +18,11 @@
     <string name="break_time">Enter break time here</string>
     <string name="break_time_hint">Enter break time here</string>
 
+    <string name="cloud">Cloud</string>
+
+    <string name="selectImageLabel">Select an image</string>
+
+    <string name="sampleImageLabel">Sample image</string>
+
 
 </resources>
