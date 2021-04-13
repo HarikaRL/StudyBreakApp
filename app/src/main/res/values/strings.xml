@@ -12,6 +12,7 @@
     <string name="studytime_label">Time to study</string>
 
     <string name="welcome">Welcome!</string>
+    <string name="directions">Enter the amount of time you want to take a break for and the amount of time you want to study for, and then press start to begin your break. Once your break time is over, you will be brought to a page displaying the amount of studying time left before you can take another break. You will also have the option to enter the goals page and write down several goals.</string>
     <string name="start">Start</string>
     <string name="study_time">Enter study time here</string>
     <string name="study_time_hint">Enter study time here</string>

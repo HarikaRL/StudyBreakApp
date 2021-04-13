@@ -12,14 +12,13 @@
         android:layout_width="298dp"
         android:layout_height="223dp"
         android:layout_marginStart="166dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="26dp"
         android:contentDescription="@string/study_time"
-        app:layout_constraintBottom_toTopOf="@+id/start"
+        app:layout_constraintBottom_toTopOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/breakTimeCloud"
+        app:layout_constraintVertical_bias="0.666"
         app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
 
     <EditText
@@ -36,21 +35,34 @@
         app:layout_constraintStart_toStartOf="@+id/studyTimeCloud" />
 
     <TextView
-        android:id="@+id/Welcome"
+        android:id="@+id/welcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="85dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="monospace"
         android:text="@string/welcome"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/directions"
+        android:layout_width="411dp"
+        android:layout_height="229dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="monospace"
+        android:text="@string/directions"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
-        android:textSize="50sp"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,13 +70,13 @@
         android:id="@+id/breakTimeCloud"
         android:layout_width="326dp"
         android:layout_height="206dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="19dp"
         android:contentDescription="@string/break_time"
         app:layout_constraintEnd_toStartOf="@+id/studyTimeCloud"
-        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Welcome"
+        app:layout_constraintTop_toBottomOf="@+id/directions"
         app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
 
     <EditText
@@ -80,26 +92,27 @@
         app:layout_constraintBottom_toBottomOf="@+id/breakTimeCloud"
         app:layout_constraintEnd_toEndOf="@+id/breakTimeCloud" />
 
-    <Button
-        android:id="@+id/start"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="167dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="92dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
-        android:fontFamily="monospace"
-        android:text="@string/start"
-        android:textAlignment="center"
-        android:textColor="#8603A9F4"
-        android:textSize="26sp"
+    <ImageButton
+        android:id="@+id/background"
+        android:layout_width="195dp"
+        android:layout_height="91dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/start"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/studyTimeCloud" />
+        app:srcCompat="@android:drawable/screen_background_light" />
+
+    <TextView
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        android:textColor="#8603A9F4"
+        android:textSize="46sp"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintEnd_toEndOf="@+id/background"
+        app:layout_constraintStart_toStartOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
