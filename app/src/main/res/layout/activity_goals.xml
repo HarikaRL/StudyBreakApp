@@ -64,13 +64,13 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/image_layer1"
+                android:id="@+id/cloud_layer1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/blankCloud"
+                    android:id="@+id/blankCloud2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -78,7 +78,7 @@
                     app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview" />
 
                 <ImageView
-                    android:id="@+id/filledCloud"
+                    android:id="@+id/filledCloud2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -86,12 +86,6 @@
                     app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
 
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/image_layer2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"/>
 
         </LinearLayout>
 
