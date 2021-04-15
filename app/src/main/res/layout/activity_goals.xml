@@ -44,6 +44,7 @@
                 android:fontFamily="monospace"
                 android:text="@string/goals_heading"
                 android:textAlignment="textEnd"
+                android:textColor="#FFFFFF"
                 android:textSize="24sp" />
         </LinearLayout>
 
