@@ -13,8 +13,8 @@
         android:layout_height="223dp"
         android:layout_above="@id/background_button"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="-14dp"
-        android:layout_marginBottom="216dp"
+        android:layout_marginStart="-11dp"
+        android:layout_marginBottom="206dp"
         android:contentDescription="@string/study_time"
         app:layout_constraintBottom_toTopOf="@id/background_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,8 @@
         android:layout_marginBottom="59dp"
         android:ems="10"
         android:hint="@string/break_time"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/background_button"
@@ -103,9 +104,9 @@
         android:layout_height="71dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="224dp"
-        android:layout_marginBottom="15dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="154dp"
+        android:layout_marginBottom="14dp"
         android:background="#001C1616"
         android:contentDescription="@string/start"
         android:textColor="#FFFFFF"
@@ -120,19 +121,20 @@
     <TextView
         android:id="@+id/start"
         android:layout_width="111dp"
-        android:layout_height="59dp"
-        android:layout_alignStart="@id/background_button"
-        android:layout_alignEnd="@id/background_button"
-        android:layout_alignBottom="@id/background_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="4dp"
+        android:layout_height="66dp"
+        android:layout_alignStart="@+id/background_button"
+        android:layout_alignTop="@+id/background_button"
+        android:layout_alignEnd="@+id/background_button"
+        android:layout_alignBottom="@+id/background_button"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="3dp"
         android:layout_marginTop="7dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="-2dp"
         android:background="#FFFFFF"
         android:backgroundTint="#FFFFFF"
         android:text="@string/start"
         android:textColor="#8603A9F4"
-        android:textSize="46sp" />
+        android:textSize="50sp" />
 
 </RelativeLayout>
