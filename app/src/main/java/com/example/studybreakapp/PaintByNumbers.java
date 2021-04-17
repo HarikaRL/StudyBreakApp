@@ -10,6 +10,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+// Note: doesn't completely work right now; I need to access the bitmap created in the onCreate
+// method in my touch listener in order to change color on touch, but I'm not sure how to do that.
+// Those lines (lines 112 and 113) are commented out right now.
+
 public class PaintByNumbers extends AppCompatActivity {
 
     @Override
