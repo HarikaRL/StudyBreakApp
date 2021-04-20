@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class selectImage extends AppCompatActivity {
+public class SelectImage extends AppCompatActivity {
     private Button home;
     private Button goals;
 
@@ -36,12 +36,12 @@ public class selectImage extends AppCompatActivity {
     }
 
     private void home() {
-        Intent intent = new Intent(selectImage.this, MainActivity.class);
+        Intent intent = new Intent(SelectImage.this, MainActivity.class);
         startActivity(intent);
     }
 
     private void goals() {
-        Intent intent = new Intent(selectImage.this, Goals.class);
+        Intent intent = new Intent(SelectImage.this, Goals.class);
         startActivity(intent);
     }
 
