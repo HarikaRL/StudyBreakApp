@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
      * Moves to the activity page once the start button is pressed
      */
     private void movetoSelectImage() {
-        Intent intent = new Intent(MainActivity.this, selectImage.class);
+        Intent intent = new Intent(MainActivity.this, SelectImage.class);
         startActivity(intent);
     }
 
