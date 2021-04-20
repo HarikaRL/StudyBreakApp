@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <acivity android:name=".PaintByNumbers"></acivity>
+        <activity android:name=".PaintByNumbers" />
 
         <meta-data
             android:name="preloaded_fonts"
