@@ -18,13 +18,17 @@ import java.util.Arrays;
 
 public class PaintByNumbers extends AppCompatActivity {
 
+    ImageView img;
+    Bitmap bit;
+    int[][][] pixelGrid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint_by_numbers);
-        ImageView img = findViewById(R.id.ImgBeingPainted);
-        Bitmap bit = Bitmap.createBitmap(1000, 1920, Bitmap.Config.ARGB_8888);
-        int[][][] pixelGrid = getPixelGrid(bit);
+        img = findViewById(R.id.ImgBeingPainted);
+        bit = Bitmap.createBitmap(1000, 1920, Bitmap.Config.ARGB_8888);
+        pixelGrid = getPixelGrid(bit);
         bit = clearImg(bit);
         img.setImageBitmap(bit);
         img.setOnTouchListener(imgSourceOnTouchListener);
@@ -109,8 +113,8 @@ public class PaintByNumbers extends AppCompatActivity {
 
             for (int i = 0; i < 30; i++) {
                 for (int j = 0; j < 30; j++) {
-                    // bit.setPixel(pos[0]*30+i, pos[1]*30+i, Color.argb(pixelGrid[pos[0]][pos[1]][0], pixelGrid[pos[0]][pos[1]][1], pixelGrid[pos[0]][pos[1]][2]));
-                    // img.setImageBitmap(bit);
+                    bit.setPixel(pos[0]*30+i, pos[1]*30+i, Color.rgb(pixelGrid[pos[0]][pos[1]][0], pixelGrid[pos[0]][pos[1]][1], pixelGrid[pos[0]][pos[1]][2]));
+                    img.setImageBitmap(bit);
                 }
             }
 
