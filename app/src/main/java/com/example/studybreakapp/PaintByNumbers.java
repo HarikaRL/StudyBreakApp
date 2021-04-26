@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,17 +23,20 @@ public class PaintByNumbers extends AppCompatActivity {
     ImageView img;
     Bitmap bit;
     int[][][] pixelGrid;
+    int[] viewCoords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint_by_numbers);
         img = findViewById(R.id.ImgBeingPainted);
-        bit = Bitmap.createBitmap(1000, 1920, Bitmap.Config.ARGB_8888);
+        bit = BitmapFactory.decodeResource(getResources(),R.drawable.rainbowheart);
         pixelGrid = getPixelGrid(bit);
         bit = clearImg(bit);
         img.setImageBitmap(bit);
         img.setOnTouchListener(imgSourceOnTouchListener);
+        viewCoords = new int[2];
+        img.getLocationOnScreen(viewCoords);
     }
 
     public static int getScreenHeight() {
@@ -55,8 +60,8 @@ public class PaintByNumbers extends AppCompatActivity {
     }
 
     public int[][][] getPixelGrid(Bitmap bitmap) {
-        int height = getScreenHeight()/30;
-        int width = getScreenWidth()/30;
+        int height = (int)bitmap.getHeight()/30;
+        int width = (int)bitmap.getWidth()/30;
         int[][][] pixelGrid = new int[height][width][3];
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -99,8 +104,8 @@ public class PaintByNumbers extends AppCompatActivity {
 
     public int[] getCoarseTouchPosition(View v, MotionEvent e) {
         int[] pos = new int[2];
-        pos[0] = (int)(e.getRawX()/30);
-        pos[1] = (int)(e.getRawY()/30);
+        pos[0] = (int)((e.getX()-viewCoords[0])/30);
+        pos[1] = (int)((e.getY()-viewCoords[1])/30);
         return pos;
     }
 
@@ -111,9 +116,13 @@ public class PaintByNumbers extends AppCompatActivity {
 
             int[] pos = getCoarseTouchPosition(view, event);
 
+            if (pos[0] < 0 || pos[1] < 0) {
+                return true;
+            }
+
             for (int i = 0; i < 30; i++) {
                 for (int j = 0; j < 30; j++) {
-                    bit.setPixel(pos[0]*30+i, pos[1]*30+i, Color.rgb(pixelGrid[pos[0]][pos[1]][0], pixelGrid[pos[0]][pos[1]][1], pixelGrid[pos[0]][pos[1]][2]));
+                    bit.setPixel(pos[0]*30+i, pos[1]*30+j, Color.rgb(pixelGrid[pos[0]][pos[1]][0], pixelGrid[pos[0]][pos[1]][1], pixelGrid[pos[0]][pos[1]][2]));
                     img.setImageBitmap(bit);
                 }
             }
