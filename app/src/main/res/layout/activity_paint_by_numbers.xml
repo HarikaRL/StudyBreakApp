@@ -8,9 +8,9 @@
 
     <ImageView
         android:id="@+id/ImgBeingPainted"
-        android:layout_width="414dp"
-        android:layout_height="728dp"
-        app:srcCompat="@drawable/rainbowheart"
+        android:layout_width="390dp"
+        android:layout_height="720dp"
+        android:src="@drawable/rainbowheart"
         tools:layout_editor_absoluteX="-3dp"
         tools:layout_editor_absoluteY="-3dp"
         tools:ignore="MissingConstraints" />
