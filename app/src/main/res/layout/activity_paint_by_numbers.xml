@@ -10,7 +10,6 @@
         android:id="@+id/ImgBeingPainted"
         android:layout_width="414dp"
         android:layout_height="728dp"
-        app:srcCompat="@drawable/rainbowheart"
         tools:layout_editor_absoluteX="-3dp"
         tools:layout_editor_absoluteY="-3dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
