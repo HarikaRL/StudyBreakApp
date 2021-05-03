@@ -10,6 +10,7 @@ import android.widget.Button;
 public class SelectImage extends AppCompatActivity {
     private Button home;
     private Button goals;
+    private Button paint;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,13 @@ public class SelectImage extends AppCompatActivity {
                 goals();
             }
         });
+
+        paint = findViewById(R.id.testpaint);
+
+        paint.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { paint(); }
+        });
     }
 
     private void home() {
@@ -42,6 +50,11 @@ public class SelectImage extends AppCompatActivity {
 
     private void goals() {
         Intent intent = new Intent(SelectImage.this, Goals.class);
+        startActivity(intent);
+    }
+
+    private void paint() {
+        Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
         startActivity(intent);
     }
 
