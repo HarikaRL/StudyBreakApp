@@ -1,23 +1,21 @@
 package com.example.studybreakapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.res.Resources;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
-
-// Note: doesn't completely work right now; I need to access the bitmap created in the onCreate
-// method in my touch listener in order to change color on touch, but I'm not sure how to do that.
-// Those lines (lines 112 and 113) are commented out right now.
 
 public class PaintByNumbers extends AppCompatActivity {
 
@@ -65,11 +63,29 @@ public class PaintByNumbers extends AppCompatActivity {
     Bitmap bit;
     int[][][] pixelGrid;
     int[] viewCoords;
+    GridLayout g;
+    TextView e;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint_by_numbers);
+        g = (GridLayout) findViewById(R.id.PaintGrid);
+        Log.d("Karthik", "Row count: " + g.getRowCount());
+        Log.d("Karthik", "Row count: " + g.getColumnCount());
+        for (int i = 0; i < g.getRowCount(); i++) {
+            for (int j = 0; j < g.getColumnCount(); j++) {
+                e = new TextView(g.getContext());
+                e.setText("0");
+                GridLayout.LayoutParams lParams = new GridLayout.LayoutParams();
+                lParams.height = 0;
+                lParams.width = 0;
+                lParams.columnSpec = GridLayout.spec(j,1,1);
+                lParams.rowSpec = GridLayout.spec(i,1,1);
+                lParams.setGravity(Gravity.CENTER);
+                g.addView(e, lParams);
+            }
+        }
         img = findViewById(R.id.ImgBeingPainted);
         bit = loadBitmapFromView(img);
         pixelGrid = getPixelGrid(bit);
@@ -132,15 +148,6 @@ public class PaintByNumbers extends AppCompatActivity {
         Bitmap ret = Bitmap.createBitmap(width, height, bitmap.getConfig());
         ret.setPixels(pixels, 0, width, 0,0, width, height);
         return ret;
-    }
-
-    public void setColor(int x, int y, Bitmap bitmap, int[][][] pixelGrid) {
-        for (int i = 0; i < 30; i++) {
-            for (int j = 0; j < 30; j++) {
-                bitmap.setPixel(30*x + i, 30*y + i, Color.rgb(pixelGrid[x][y][0], pixelGrid[x][y][1], pixelGrid[x][y][2]));
-                img.setImageBitmap(bitmap);
-            }
-        }
     }
 
     public int[] getCoarseTouchPosition(View v, MotionEvent e) {
