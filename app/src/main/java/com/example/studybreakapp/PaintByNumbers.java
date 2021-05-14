@@ -210,7 +210,7 @@ public class PaintByNumbers extends AppCompatActivity {
         int[] colorCounts = new int[117];
         for (int i = 0; i < 25; i++) {
             for (int j = 0; j < 34; j++) {
-                for (int k = 0; k < 117; k++) {
+                for (int k = 0; k < commonColors.length; k++) {
                     if (Color.rgb(pixelGrid[i][j][0], pixelGrid[i][j][1], pixelGrid[i][j][2]) == commonColors[k]) {
                         colorCounts[k]++;
                     }
