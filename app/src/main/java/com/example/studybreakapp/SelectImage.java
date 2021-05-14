@@ -2,38 +2,32 @@ package com.example.studybreakapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class SelectImage extends AppCompatActivity {
-    private Button home;
     private Button goals;
     private Button paint;
+    private Button timerCount;
+
+    private SharedPreferences nPreferences;
 
     @Override
+    /**
+     * allows user to display time left
+     * sets button to go to paint activity
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_image);
 
-        home = findViewById(R.id.home_button);
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                home();
-            }
-        });
-
-        goals = findViewById(R.id.goals_button);
-
-        goals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goals();
-            }
-        });
+        timerCount = findViewById(R.id.time_left);
 
         paint = findViewById(R.id.testpaint);
 
@@ -41,21 +35,40 @@ public class SelectImage extends AppCompatActivity {
             @Override
             public void onClick(View v) { paint(); }
         });
+
+        SharedPreferences sharedPreferences = getSharedPreferences("SHARED_PREFS", Context.MODE_PRIVATE);
+        String oneMinute = sharedPreferences.getString("Value", "");
+
+        timerCount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String timeNew = sharedPreferences.getString("timeCountdown", "");
+
+                Context context = getApplicationContext();
+                CharSequence text = "Time Left: " + timeNew;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        });
+
+        if(oneMinute == "one")
+        {
+            Context context = getApplicationContext();
+            CharSequence text = "One minute remaining.";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
-    private void home() {
-        Intent intent = new Intent(SelectImage.this, MainActivity.class);
-        startActivity(intent);
-    }
-
-    private void goals() {
-        Intent intent = new Intent(SelectImage.this, Goals.class);
-        startActivity(intent);
-    }
-
+    /**
+     * method to move from the select image activity to the paint activity
+     */
     private void paint() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
         startActivity(intent);
     }
-
 }

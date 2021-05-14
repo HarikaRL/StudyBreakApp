@@ -5,12 +5,13 @@
     <application
         android:name=".Controller"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/app_icon_mindful_productivity"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyBreakApp">
-        <activity android:name=".SelectImage"></activity>
+        <activity android:name=".BreakTime"></activity>
+        <activity android:name=".SelectImage" />
         <activity android:name=".StudyTime" />
         <activity android:name=".Goals" />
         <activity android:name=".MainActivity">
