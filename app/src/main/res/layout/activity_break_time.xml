@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8603A9F4"
-    tools:context="com.example.studybreakapp.StudyTime">
+    tools:context=".BreakTime">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,55 +15,43 @@
         tools:layout_editor_absoluteY="-32dp">
 
         <LinearLayout
-            android:id="@+id/navigation_buttons"
+            android:id="@+id/nav_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-<!--            <Button-->
-<!--                android:id="@+id/time_remaining_button"-->
-<!--                style="@style/Widget.AppCompat.Button.Borderless"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:fontFamily="monospace"-->
-<!--                android:text="Check Time Left"-->
-<!--                android:textAlignment="textStart"-->
-<!--                android:textSize="24sp" />-->
+            <Button
+                android:id="@+id/button_activity"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="@string/activity_label"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
 <!--            <Button-->
-<!--                android:id="@+id/activity_button"-->
+<!--                android:id="@+id/button_goals"-->
 <!--                style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
-<!--                android:layout_width="114dp"-->
-<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="178dp"-->
+<!--                android:layout_height="match_parent"-->
 <!--                android:layout_centerHorizontal="true"-->
 <!--                android:layout_weight="1"-->
 <!--                android:fontFamily="monospace"-->
-<!--                android:text="@string/activity_label"-->
+<!--                android:text="@string/goals_heading"-->
 <!--                android:textAlignment="textEnd"-->
 <!--                android:textColor="@color/white"-->
 <!--                android:textSize="24sp" />-->
 
-            <Button
-                android:id="@+id/goals_button"
-                style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="monospace"
-                android:text="@string/goals_heading"
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                android:textSize="24sp" />
-
         </LinearLayout>
 
         <TextView
-            android:id="@+id/studytime_label"
+            android:id="@+id/label_breakTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:text="@string/studytime_label"
+            android:text="@string/breaktime_label"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
@@ -72,7 +60,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/remainingTime"
+        android:id="@+id/timeLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Time Remaining"
@@ -82,14 +70,14 @@
         android:layout_centerVertical="true" />
 
     <TextView
-        android:id="@+id/timer"
+        android:id="@+id/t"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="00:00"
         android:textColor="@color/white"
         android:textSize="60sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/remainingTime"
-        tools:ignore="NotSibling" />
+        android:layout_below="@+id/timeLeft"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

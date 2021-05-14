@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8603A9F4"
-    tools:context=".MainActivity">
+    tools:context="com.example.studybreakapp.MainActivity">
 
     <ImageView
         android:id="@+id/studyTimeCloud"
@@ -34,6 +34,7 @@
         android:layout_marginTop="111dp"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="73dp"
+        android:layout_below="@+id/directions"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/study_time"
@@ -53,9 +54,10 @@
         android:id="@+id/directions"
         android:layout_width="411dp"
         android:layout_height="229dp"
+        android:layout_below="@+id/welcome"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="5dp"
         android:fontFamily="monospace"
         android:text="@string/directions"
@@ -65,8 +67,7 @@
         android:textColorHighlight="#FFFFFF"
         android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/breakTimeCloud"

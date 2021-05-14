@@ -10,7 +10,6 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.provider.SyncStateContract.Constants;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
     private Button mStart;
 
     @Override
+    /**
+     * sets all of the buttons and texts
+     * sets shared preferences
+     * sets button to move to break time activity
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -43,13 +47,11 @@ public class MainActivity extends AppCompatActivity {
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mEditor = mPreferences.edit();
 
-//        String message = st.getText().toString(); --> doesn't work, produces nothing as a result // meant to get the text that the user inputted
-
         checkSharedPreferences();
         mStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                movetoSelectImage();
+                moveToBreakTime();
 
                 String sTime = mStudy.getText().toString();
                 mEditor.putString(getString(R.string.studyTime), sTime);
@@ -60,10 +62,6 @@ public class MainActivity extends AppCompatActivity {
                 mEditor.commit();
 
                 mStart.setEnabled(true);
-
-//                Intent sendMessage = new Intent(MainActivity.this, StudyTime.class);
-//                sendMessage.putExtra("UserInput", message);
-//                startActivity(sendMessage); --> doesn't work, meant to send the users input to the study time class
             }
         });
     }
@@ -81,15 +79,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Moves to the activity page once the start button is pressed
+     * method to move from the break time activity to the main activity
      */
-    private void movetoSelectImage() {
-        Intent intent = new Intent(MainActivity.this, SelectImage.class);
-        startActivity(intent);
-    }
-
-    private void movetoStudyTime() {
-        Intent intent = new Intent(MainActivity.this, StudyTime.class);
+    private void moveToBreakTime() {
+        Intent intent = new Intent(MainActivity.this, BreakTime.class);
         startActivity(intent);
     }
 
@@ -100,6 +93,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
+        /**
+         * sets the break time and study time inputs to the shared preferences so that the user doesn't always have to reenter their times
+         */
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             String stInput = st.getText().toString().trim();
             String brInput = br.getText().toString().trim();
@@ -108,6 +104,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
+        /**
+         * notify that text has been changed
+         */
         public void afterTextChanged(Editable s) {
 
         }

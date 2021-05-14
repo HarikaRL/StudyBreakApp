@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StudyBreakApp</string>
+    <string name="app_name">Mindful Productivity</string>
 
     <string name="goals_heading">GOALS</string>
 
@@ -28,4 +28,8 @@
     <string name="begin">com.example.studybreakapp.start</string>
     <string name="studyTime">com.example.studybreakapp.studyTime</string>
     <string name="breakTime">com.example.studybreakapp.breakTime</string>
+
+    <string name="breaktime_label">Time to take a break</string>
+    <string name="activity_label">Activity</string>
+    <string name="time_left_string">Time Left:</string>
 </resources>
