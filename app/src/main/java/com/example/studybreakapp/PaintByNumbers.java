@@ -132,12 +132,12 @@ public class PaintByNumbers extends AppCompatActivity {
             t.setGravity(Gravity.CENTER);
             cLabels.addView(t);
         }
-        for (int i = 0; i < 34; i++) {
-            for (int j = 0; j < 25; j++) {
+        for (int i = 0; i < pixelGrid.length - 1; i++) {
+            for (int j = 0; j < pixelGrid[i].length - 1; j++) {
                 TableRow tr = (TableRow) tl.getChildAt(i);
                 TextView tv = (TextView) tr.getChildAt(j);
-                for (int k = 0; k < 13; k++) {
-                    if (Color.rgb(pixelGrid[j][i][0], pixelGrid[j][i][1], pixelGrid[j][i][2]) == mostCommonColors[k]) {
+                for (int k = 0; k < mostCommonColors.length - 1; k++) {
+                    if (Color.rgb(pixelGrid[i][j][0], pixelGrid[i][j][1], pixelGrid[i][j][2]) == mostCommonColors[k]) {
                         tv.setText(alphabet[k]);
                     }
                 }
@@ -207,13 +207,13 @@ public class PaintByNumbers extends AppCompatActivity {
     }
 
     public int[] getMostCommonColors(int[][][] pixelGrid) {
-        int[] colorCounts = new int[117];
-        for (int i = 0; i < 25; i++) {
-            for (int j = 0; j < 34; j++) {
-                for (int k = 0; k < commonColors.length; k++) {
-                    if (Color.rgb(pixelGrid[i][j][0], pixelGrid[i][j][1], pixelGrid[i][j][2]) == commonColors[k]) {
-                        colorCounts[k]++;
-                    }
+        int[] colorCounts = new int[commonColors.length];
+        for (int i = 0; i < pixelGrid.length - 1; i++) {
+            for (int j = 0; j < pixelGrid[i].length - 1; j++) {
+                for (int k = 0; k < commonColors.length-1; k++) {
+                        if (Color.rgb(pixelGrid[i][j][0], pixelGrid[i][j][1], pixelGrid[i][j][2]) == commonColors[k]) {
+                            colorCounts[k]++;
+                        }
                 }
             }
         }
@@ -230,11 +230,11 @@ public class PaintByNumbers extends AppCompatActivity {
     }
 
     public int[][][] modifiedPixelGrid(int[][][] pixelGrid, int[] mostCommonColors) {
-        for (int i = 0; i < 25; i++) {
-            for (int j = 0; j < 34; j++) {
+        for (int i = 0; i < pixelGrid.length - 1; i++) {
+            for (int j = 0; j < pixelGrid[i].length - 1; j++) {
                 int minDist = 1000000000;
                 int nearestColor = Color.WHITE;
-                for (int k = 0; k < 13; k++) {
+                for (int k = 0; k < mostCommonColors.length - 1; k++) {
                         if ((int)(Math.pow(pixelGrid[i][j][0]-Color.red(mostCommonColors[k]),2)+Math.pow(pixelGrid[i][j][1]-Color.green(mostCommonColors[k]),2)+Math.pow(pixelGrid[i][j][2] - Color.blue(mostCommonColors[k]),2)) < minDist) {
                             minDist = (int)(Math.pow(pixelGrid[i][j][0]-Color.red(mostCommonColors[k]),2)+Math.pow(pixelGrid[i][j][1]-Color.green(mostCommonColors[k]),2)+Math.pow(pixelGrid[i][j][2] - Color.blue(mostCommonColors[k]),2));
                             nearestColor = mostCommonColors[k];
