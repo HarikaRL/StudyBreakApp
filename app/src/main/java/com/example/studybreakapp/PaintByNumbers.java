@@ -78,7 +78,7 @@ public class PaintByNumbers extends AppCompatActivity {
     TableLayout tl;
     RelativeLayout rLayout;
     int selectedColor = Color.WHITE;
-    int[] mostCommonColors;
+    ArrayList<Integer> mostCommonColors;
     TableRow tRow;
     String[] alphabet = {"A","B","C","D","E","F","G","H","I","J","K","L","M"};
 
@@ -87,6 +87,36 @@ public class PaintByNumbers extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint_by_numbers);
         img = findViewById(R.id.ImgBeingPainted);
+        if (getIntent().getStringExtra("image").equals("1")) {
+            img.setImageResource(R.drawable.gradient);
+        }
+        if (getIntent().getStringExtra("image").equals("2")) {
+            img.setImageResource(R.drawable.sunset);
+        }
+        if (getIntent().getStringExtra("image").equals("3")) {
+            img.setImageResource(R.drawable.mountain);
+        }
+        if (getIntent().getStringExtra("image").equals("4")) {
+            img.setImageResource(R.drawable.plains);
+        }
+        if (getIntent().getStringExtra("image").equals("5")) {
+            img.setImageResource(R.drawable.ocean);
+        }
+        if (getIntent().getStringExtra("image").equals("6")) {
+            img.setImageResource(R.drawable.beach);
+        }
+        if (getIntent().getStringExtra("image").equals("7")) {
+            img.setImageResource(R.drawable.rainbow);
+        }
+        if (getIntent().getStringExtra("image").equals("8")) {
+            img.setImageResource(R.drawable.cactus);
+        }
+        if (getIntent().getStringExtra("image").equals("9")) {
+            img.setImageResource(R.drawable.arctic);
+        }
+        if (getIntent().getStringExtra("image").equals("10")) {
+            img.setImageResource(R.drawable.autumn);
+        }
         rLayout = findViewById(R.id.MainLayout);
         tl = findViewById(R.id.PaintGrid);
         for (int i = 0; i < 34; i++) {
@@ -113,17 +143,17 @@ public class PaintByNumbers extends AppCompatActivity {
         viewCoords = new int[2];
         img.getLocationOnScreen(viewCoords);
         tRow = findViewById(R.id.ColorSelection);
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < mostCommonColors.size(); i++) {
             TextView t = new TextView(tRow.getContext());
             TableRow.LayoutParams rp = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT);
             rp.weight = 1;
             t.setLayoutParams(rp);
             t.setText("");
-            t.setBackgroundColor(mostCommonColors[i]);
+            t.setBackgroundColor(mostCommonColors.get(i));
             tRow.addView(t);
         }
         TableRow cLabels = findViewById(R.id.ColorLabels);
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < mostCommonColors.size(); i++) {
             TextView t = new TextView(tRow.getContext());
             TableRow.LayoutParams rp = new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT);
             rp.weight = 1;
@@ -132,12 +162,12 @@ public class PaintByNumbers extends AppCompatActivity {
             t.setGravity(Gravity.CENTER);
             cLabels.addView(t);
         }
-        for (int i = 0; i < pixelGrid.length - 1; i++) {
-            for (int j = 0; j < pixelGrid[i].length - 1; j++) {
+        for (int i = 0; i < pixelGrid.length; i++) {
+            for (int j = 0; j < pixelGrid[i].length; j++) {
                 TableRow tr = (TableRow) tl.getChildAt(i);
                 TextView tv = (TextView) tr.getChildAt(j);
-                for (int k = 0; k < mostCommonColors.length - 1; k++) {
-                    if (Color.rgb(pixelGrid[i][j][0], pixelGrid[i][j][1], pixelGrid[i][j][2]) == mostCommonColors[k]) {
+                for (int k = 0; k < mostCommonColors.size(); k++) {
+                    if (Color.rgb(pixelGrid[i][j][0], pixelGrid[i][j][1], pixelGrid[i][j][2]) == mostCommonColors.get(k)) {
                         tv.setText(alphabet[k]);
                     }
                 }
@@ -156,15 +186,15 @@ public class PaintByNumbers extends AppCompatActivity {
     public int[][][] getPixelGrid(Bitmap bitmap) {
         int height = (int)bitmap.getHeight()/30;
         int width = (int)bitmap.getWidth()/30;
-        int[][][] pixelGrid = new int[width][height][3];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
+        int[][][] pixelGrid = new int[height][width][3];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
                 int redSum = 0;
                 int blueSum = 0;
                 int greenSum = 0;
                 for (int k = 0; k < 30; k++) {
                     for (int l = 0; l < 30; l++) {
-                        int pixel = bitmap.getPixel(30 * i + k, 30 * j + l);
+                        int pixel = bitmap.getPixel(30 * j + l, 30 * i + k);
                         redSum += Color.red(pixel);
                         blueSum += Color.blue(pixel);
                         greenSum += Color.green(pixel);
@@ -206,11 +236,11 @@ public class PaintByNumbers extends AppCompatActivity {
         return pos;
     }
 
-    public int[] getMostCommonColors(int[][][] pixelGrid) {
+    public ArrayList<Integer> getMostCommonColors(int[][][] pixelGrid) {
         int[] colorCounts = new int[commonColors.length];
-        for (int i = 0; i < pixelGrid.length - 1; i++) {
-            for (int j = 0; j < pixelGrid[i].length - 1; j++) {
-                for (int k = 0; k < commonColors.length-1; k++) {
+        for (int i = 0; i < pixelGrid.length; i++) {
+            for (int j = 0; j < pixelGrid[i].length; j++) {
+                for (int k = 0; k < commonColors.length; k++) {
                         if (Color.rgb(pixelGrid[i][j][0], pixelGrid[i][j][1], pixelGrid[i][j][2]) == commonColors[k]) {
                             colorCounts[k]++;
                         }
@@ -221,23 +251,26 @@ public class PaintByNumbers extends AppCompatActivity {
         for (int i = 0; i < 117; i++) {
             sorted.put(colorCounts[i], commonColors[i]);
         }
-        int[] mostCommonColors = new int[13];
+        ArrayList<Integer> mostCommonColors = new ArrayList<Integer>();
         for (int i = 0; i < 13; i++) {
-            mostCommonColors[i] = sorted.get(sorted.lastKey());
+            if (sorted.size() == 0) {
+                break;
+            }
+            mostCommonColors.add(sorted.get(sorted.lastKey()));
             sorted.remove(sorted.lastKey());
         }
         return mostCommonColors;
     }
 
-    public int[][][] modifiedPixelGrid(int[][][] pixelGrid, int[] mostCommonColors) {
-        for (int i = 0; i < pixelGrid.length - 1; i++) {
-            for (int j = 0; j < pixelGrid[i].length - 1; j++) {
+    public int[][][] modifiedPixelGrid(int[][][] pixelGrid, ArrayList<Integer> mostCommonColors) {
+        for (int i = 0; i < pixelGrid.length; i++) {
+            for (int j = 0; j < pixelGrid[i].length; j++) {
                 int minDist = 1000000000;
                 int nearestColor = Color.WHITE;
-                for (int k = 0; k < mostCommonColors.length - 1; k++) {
-                        if ((int)(Math.pow(pixelGrid[i][j][0]-Color.red(mostCommonColors[k]),2)+Math.pow(pixelGrid[i][j][1]-Color.green(mostCommonColors[k]),2)+Math.pow(pixelGrid[i][j][2] - Color.blue(mostCommonColors[k]),2)) < minDist) {
-                            minDist = (int)(Math.pow(pixelGrid[i][j][0]-Color.red(mostCommonColors[k]),2)+Math.pow(pixelGrid[i][j][1]-Color.green(mostCommonColors[k]),2)+Math.pow(pixelGrid[i][j][2] - Color.blue(mostCommonColors[k]),2));
-                            nearestColor = mostCommonColors[k];
+                for (int k = 0; k < mostCommonColors.size(); k++) {
+                        if ((int)(Math.pow(pixelGrid[i][j][0]-Color.red(mostCommonColors.get(k)),2)+Math.pow(pixelGrid[i][j][1]-Color.green(mostCommonColors.get(k)),2)+Math.pow(pixelGrid[i][j][2] - Color.blue(mostCommonColors.get(k)),2)) < minDist) {
+                            minDist = (int)(Math.pow(pixelGrid[i][j][0]-Color.red(mostCommonColors.get(k)),2)+Math.pow(pixelGrid[i][j][1]-Color.green(mostCommonColors.get(k)),2)+Math.pow(pixelGrid[i][j][2] - Color.blue(mostCommonColors.get(k)),2));
+                            nearestColor = mostCommonColors.get(k);
                         }
                 }
                 pixelGrid[i][j][0] = Color.red(nearestColor);
@@ -274,8 +307,8 @@ public class PaintByNumbers extends AppCompatActivity {
                     if (rect.contains(posOnPic[0], posOnPic[1])) {
                         tr = (TableRow) tl.getChildAt(i);
                         t = (TextView) tr.getChildAt(j);
-                        for (int k = 0; k < 13; k++) {
-                            if (selectedColor == mostCommonColors[k]) {
+                        for (int k = 0; k < mostCommonColors.size(); k++) {
+                            if (selectedColor == mostCommonColors.get(k)) {
                                 if (t.getText() == alphabet[k]) {
                                     t.setText("");
                                     t.setBackgroundColor(selectedColor);
@@ -291,7 +324,7 @@ public class PaintByNumbers extends AppCompatActivity {
             tRow.getLocationOnScreen(rowPos);
             posOnSelect[0] = (int)(event.getRawX() - rowPos[0]);
             posOnSelect[1] = (int)(event.getRawY() - rowPos[1]);
-            for (int i = 0; i < 13; i++) {
+            for (int i = 0; i < mostCommonColors.size(); i++) {
                 TextView e = (TextView) tRow.getChildAt(i);
                 int left = e.getLeft();
                 int right = e.getRight();
@@ -299,7 +332,7 @@ public class PaintByNumbers extends AppCompatActivity {
                 int bottom = e.getBottom();
                 Rect rect = new Rect(left, top, right, bottom);
                 if (rect.contains(posOnSelect[0], posOnSelect[1])) {
-                    selectedColor = mostCommonColors[i];
+                    selectedColor = mostCommonColors.get(i);
                 }
             }
 

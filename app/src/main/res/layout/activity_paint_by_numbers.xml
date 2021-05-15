@@ -26,7 +26,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="250dp"
-        android:src="@drawable/rainbowheart"
         android:visibility="invisible" />
 
     <TableRow

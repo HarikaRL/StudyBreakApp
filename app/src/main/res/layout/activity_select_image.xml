@@ -58,55 +58,135 @@
             android:textColor="@color/white"
             android:textSize="45sp" />
 
-        <LinearLayout
-            android:id="@+id/image_layout"
+        <GridLayout
+            android:id="@+id/GridOfImages"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/image_layer1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:srcCompat="@tools:sample/avatars" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/image_layer2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    tools:srcCompat="@tools:sample/avatars" />
-            </LinearLayout>
-
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:rowCount="5"
+            android:columnCount="2"
+            >
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/gradient"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/sunset"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/mountain"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/plains"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/ocean"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/image6"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/beach"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:id="@+id/image7"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/rainbow"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/image8"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/cactus"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/image9"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/arctic"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+            <ImageView
+                android:id="@+id/image10"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:src="@drawable/autumn"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+        </GridLayout>
 
         <Button
             android:id="@+id/testpaint"
