@@ -58,6 +58,7 @@ public class Goals extends AppCompatActivity {
         timeLeft = findViewById(R.id.time_left);
 
         SharedPreferences prefsNew = getSharedPreferences("NEW_PREFS", Context.MODE_PRIVATE);
+
         timeLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

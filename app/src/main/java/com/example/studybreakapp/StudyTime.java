@@ -94,7 +94,7 @@ public class StudyTime extends AppCompatActivity {
                     public void onFinish() {
                         mTimerRunning = false;
                         mTextViewCountDown.setText("Done!");
-                        moveToHome();
+                        moveToBreakTime();
                     }
                 }.start();
                 mTimerRunning = true;
@@ -176,10 +176,10 @@ public class StudyTime extends AppCompatActivity {
     }
 
     /**
-     * method to move from the study time activity to the main activity
+     * method to move from the study time activity to the break time activity
      */
-            private void moveToHome() {
-                Intent in = new Intent(StudyTime.this, MainActivity.class);
+            private void moveToBreakTime() {
+                Intent in = new Intent(StudyTime.this, BreakTime.class);
                 startActivity(in);
             }
 

@@ -9,96 +9,90 @@
 
     <ImageView
         android:id="@+id/studyTimeCloud"
-        android:layout_width="298dp"
-        android:layout_height="223dp"
+        android:layout_width="269dp"
+        android:layout_height="177dp"
         android:layout_above="@id/background_button"
+        android:layout_below="@+id/directions"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="-11dp"
-        android:layout_marginBottom="206dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="150dp"
         android:contentDescription="@string/study_time"
-        app:layout_constraintBottom_toTopOf="@id/background_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/breakTimeCloud"
+        app:layout_constraintBottom_toTopOf="@id/breakTimeCloud"
+        app:layout_constraintTop_toBottomOf="@+id/directions"
         app:layout_constraintVertical_bias="0.666"
         app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
 
     <EditText
         android:id="@+id/studyTime"
         android:layout_width="208dp"
-        android:layout_height="39dp"
+        android:layout_height="44dp"
+        android:layout_alignStart="@+id/studyTimeCloud"
         android:layout_alignTop="@+id/studyTimeCloud"
         android:layout_alignEnd="@+id/studyTimeCloud"
-        android:layout_alignBottom="@+id/studyTimeCloud"
-        android:layout_marginTop="111dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginBottom="73dp"
-        android:layout_below="@+id/directions"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="31dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/study_time"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:textSize="12sp" />
 
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="107dp"
+        android:layout_marginEnd="84dp"
         android:text="@string/welcome"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="50sp" />
 
     <TextView
         android:id="@+id/directions"
-        android:layout_width="411dp"
-        android:layout_height="229dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/welcome"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif"
         android:text="@string/directions"
         android:textAlignment="center"
-        android:textAllCaps="true"
         android:textColor="#FFFFFF"
-        android:textColorHighlight="#FFFFFF"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="20sp" />
 
     <ImageView
         android:id="@+id/breakTimeCloud"
-        android:layout_width="326dp"
-        android:layout_height="206dp"
+        android:layout_width="246dp"
+        android:layout_height="176dp"
         android:layout_above="@+id/background_button"
+        android:layout_below="@+id/directions"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="-38dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="176dp"
         android:contentDescription="@string/break_time"
+        app:layout_constraintBottom_toTopOf="@id/background_button"
         app:layout_constraintEnd_toStartOf="@+id/studyTimeCloud"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/directions"
+        app:layout_constraintTop_toBottomOf="@+id/studyTimeCloud"
         app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
 
     <EditText
         android:id="@+id/breakTime"
         android:layout_width="203dp"
-        android:layout_height="44dp"
+        android:layout_height="42dp"
         android:layout_alignStart="@+id/breakTimeCloud"
         android:layout_alignTop="@+id/breakTimeCloud"
-        android:layout_alignBottom="@+id/breakTimeCloud"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="102dp"
-        android:layout_marginBottom="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="24dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/break_time"
-        android:inputType="numberDecimal"
+        android:inputType="number"
         android:textSize="12sp" />
 
     <Button
@@ -116,28 +110,5 @@
         android:text="@string/start"
         android:textColor="@android:color/white"
         android:textSize="26sp" />
-
-
-    <!--    <TextView-->
-<!--        android:id="@+id/start"-->
-<!--        android:layout_width="111dp"-->
-<!--        android:layout_height="66dp"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_centerVertical="true"-->
-<!--        android:layout_alignStart="@+id/background_button"-->
-<!--        android:layout_alignTop="@+id/background_button"-->
-<!--        android:layout_alignEnd="@+id/background_button"-->
-<!--        android:layout_alignBottom="@+id/background_button"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_marginStart="3dp"-->
-<!--        android:layout_marginTop="7dp"-->
-<!--        android:layout_marginEnd="1dp"-->
-<!--        android:layout_marginBottom="-2dp"-->
-<!--        android:background="#FFFFFF"-->
-<!--        android:backgroundTint="#FFFFFF"-->
-<!--        android:gravity="center_horizontal|center_vertical"-->
-<!--        android:text="@string/start"-->
-<!--        android:textColor="#8603A9F4"-->
-<!--        android:textSize="50sp" />-->
 
 </RelativeLayout>

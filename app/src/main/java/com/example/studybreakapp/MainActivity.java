@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         mStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToBreakTime();
+                moveToStudyTime();
 
                 String sTime = mStudy.getText().toString();
                 mEditor.putString(getString(R.string.studyTime), sTime);
@@ -80,10 +80,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * method to move from the break time activity to the main activity
+     * method to move from the main activity to the study time activity
      */
-    private void moveToBreakTime() {
-        Intent intent = new Intent(MainActivity.this, BreakTime.class);
+    private void moveToStudyTime() {
+        Intent intent = new Intent(MainActivity.this, StudyTime.class);
         startActivity(intent);
     }
 
