@@ -121,28 +121,28 @@ public class PaintByNumbers extends AppCompatActivity {
             toast.show();
         }
         if (getIntent().getStringExtra("image").equals("1")) {
-            img.setImageResource(R.drawable.penguinv2);
-        }
-        if (getIntent().getStringExtra("image").equals("2")) {
-            img.setImageResource(R.drawable.koala);
-        }
-        if (getIntent().getStringExtra("image").equals("3")) {
-            img.setImageResource(R.drawable.treecropped);
-        }
-        if (getIntent().getStringExtra("image").equals("4")) {
-            img.setImageResource(R.drawable.plainscropped);
-        }
-        if (getIntent().getStringExtra("image").equals("5")) {
-            img.setImageResource(R.drawable.redpandacropped);
-        }
-        if (getIntent().getStringExtra("image").equals("6")) {
-            img.setImageResource(R.drawable.sunflower);
-        }
-        if (getIntent().getStringExtra("image").equals("7")) {
             img.setImageResource(R.drawable.farmcropped);
         }
-        if (getIntent().getStringExtra("image").equals("8")) {
+        if (getIntent().getStringExtra("image").equals("2")) {
+            img.setImageResource(R.drawable.plainscropped);
+        }
+        if (getIntent().getStringExtra("image").equals("3")) {
+            img.setImageResource(R.drawable.sunflower);
+        }
+        if (getIntent().getStringExtra("image").equals("4")) {
+            img.setImageResource(R.drawable.redpandacropped);
+        }
+        if (getIntent().getStringExtra("image").equals("5")) {
+            img.setImageResource(R.drawable.penguinv2);
+        }
+        if (getIntent().getStringExtra("image").equals("6")) {
+            img.setImageResource(R.drawable.koala);
+        }
+        if (getIntent().getStringExtra("image").equals("7")) {
             img.setImageResource(R.drawable.vintagecarcropped);
+        }
+        if (getIntent().getStringExtra("image").equals("8")) {
+            img.setImageResource(R.drawable.treecropped);
         }
         img.setScaleType(ImageView.ScaleType.FIT_XY);
         rLayout = findViewById(R.id.MainLayout);
@@ -197,7 +197,6 @@ public class PaintByNumbers extends AppCompatActivity {
                 }
             }
         }
-        autofill();
     }
 
     /**
@@ -213,6 +212,10 @@ public class PaintByNumbers extends AppCompatActivity {
         v.draw(c);
         return b;
     }
+
+    /**
+     * Method that autofills the paint-by-numbers grid. Purely for testing purposes.
+     */
 
     public void autofill() {
         for (int i = 0; i < 34; i++) {
