@@ -1,31 +1,27 @@
 package com.example.studybreakapp;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Pair;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.TreeMap;
 
 public class PaintByNumbers extends AppCompatActivity {
@@ -70,23 +66,60 @@ public class PaintByNumbers extends AppCompatActivity {
             Color.rgb(204,229,255), Color.rgb(204,204,255), Color.rgb(229,204,255),
             Color.rgb(255,204,255), Color.rgb(255,204,229), Color.rgb(255,255,255)};
 
-    ImageView img;
-    Bitmap bit;
-    int[][][] pixelGrid;
-    int[] viewCoords;
-    GridLayout g;
-    TableLayout tl;
-    RelativeLayout rLayout;
-    int selectedColor = Color.WHITE;
-    ArrayList<Integer> mostCommonColors;
-    TableRow tRow;
-    String[] alphabet = {"A","B","C","D","E","F","G","H","I","J","K","L","M"};
+    private ImageView img;
+    private Bitmap bit;
+    private int[][][] pixelGrid;
+    private TableLayout tl;
+    private RelativeLayout rLayout;
+    private int selectedColor = Color.WHITE;
+    private ArrayList<Integer> mostCommonColors;
+    private TableRow tRow;
+    private String[] alphabet = {"A","B","C","D","E","F","G","H","I","J","K","L","M"};
+    private Button timeLeft;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paint_by_numbers);
         img = findViewById(R.id.ImgBeingPainted);
+        timeLeft = findViewById(R.id.time_left);
+        back = findViewById(R.id.back_to_select_image);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("SHARED_PREFS", Context.MODE_PRIVATE);
+        String oneMinute = sharedPreferences.getString("Value", "");
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PaintByNumbers.this, SelectImage.class);
+                startActivity(intent);
+            }
+        });
+
+        timeLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String timeNew = sharedPreferences.getString("timeCountdown", "");
+
+                Context context = getApplicationContext();
+                CharSequence text = "Time Left: " + timeNew;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
+        });
+
+        if(oneMinute == "one")
+        {
+            Context context = getApplicationContext();
+            CharSequence text = "One minute remaining.";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
         if (getIntent().getStringExtra("image").equals("1")) {
             img.setImageResource(R.drawable.penguinv2);
         }
@@ -94,28 +127,22 @@ public class PaintByNumbers extends AppCompatActivity {
             img.setImageResource(R.drawable.koala);
         }
         if (getIntent().getStringExtra("image").equals("3")) {
-            img.setImageResource(R.drawable.tree);
+            img.setImageResource(R.drawable.treecropped);
         }
         if (getIntent().getStringExtra("image").equals("4")) {
-            img.setImageResource(R.drawable.plains);
+            img.setImageResource(R.drawable.plainscropped);
         }
         if (getIntent().getStringExtra("image").equals("5")) {
-            img.setImageResource(R.drawable.cookiev2);
-        }
-        if (getIntent().getStringExtra("image").equals("6")) {
-            img.setImageResource(R.drawable.beach);
-        }
-        if (getIntent().getStringExtra("image").equals("7")) {
             img.setImageResource(R.drawable.redpandacropped);
         }
-        if (getIntent().getStringExtra("image").equals("8")) {
+        if (getIntent().getStringExtra("image").equals("6")) {
             img.setImageResource(R.drawable.sunflower);
         }
-        if (getIntent().getStringExtra("image").equals("9")) {
-            img.setImageResource(R.drawable.rainbowjersey);
+        if (getIntent().getStringExtra("image").equals("7")) {
+            img.setImageResource(R.drawable.farmcropped);
         }
-        if (getIntent().getStringExtra("image").equals("10")) {
-            img.setImageResource(R.drawable.mclarencropped);
+        if (getIntent().getStringExtra("image").equals("8")) {
+            img.setImageResource(R.drawable.vintagecarcropped);
         }
         img.setScaleType(ImageView.ScaleType.FIT_XY);
         rLayout = findViewById(R.id.MainLayout);
@@ -136,18 +163,9 @@ public class PaintByNumbers extends AppCompatActivity {
         }
         bit = loadBitmapFromView(img);
         pixelGrid = getPixelGrid(bit);
-        for (int i = 0; i < 34; i++) {
-            for (int j = 0; j < 25; j++) {
-                Log.d("color", pixelGrid[i][j][0] + " " + pixelGrid[i][j][1] + " " + pixelGrid[i][j][2]);
-            }
-        }
         mostCommonColors = getMostCommonColors(pixelGrid);
         pixelGrid = modifiedPixelGrid(pixelGrid, mostCommonColors);
-        bit = clearImg(bit);
-        img.setImageBitmap(bit);
-        rLayout.setOnTouchListener(imgSourceOnTouchListener);
-        viewCoords = new int[2];
-        img.getLocationOnScreen(viewCoords);
+        rLayout.setOnTouchListener(screenSourceOnTouchListener);
         tRow = findViewById(R.id.ColorSelection);
         for (int i = 0; i < mostCommonColors.size(); i++) {
             TextView t = new TextView(tRow.getContext());
@@ -182,6 +200,12 @@ public class PaintByNumbers extends AppCompatActivity {
         autofill();
     }
 
+    /**
+     * Creates a bitmap representing the image in a given imageView.
+     * @param v This is the inputted imageView
+     * @return Bitmap This is the bitmap representing the same image as v
+     */
+
     public static Bitmap loadBitmapFromView(View v) {
         Bitmap b = Bitmap.createBitmap( v.getLayoutParams().width, v.getLayoutParams().height, Bitmap.Config.ARGB_8888);
         Canvas c = new Canvas(b);
@@ -198,15 +222,26 @@ public class PaintByNumbers extends AppCompatActivity {
                 for (int k = 0; k < mostCommonColors.size(); k++) {
                     if (alphabet[k].equals(tv.getText())) {
                         tv.setBackgroundColor(mostCommonColors.get(k));
+                        tv.setText("");
                     }
                 }
             }
         }
     }
 
+    /**
+     * Creates a naive pixel grid from a given bitmap. The method does this by partitioning
+     * the bitmap into 30 pixel by 30 pixel squares and assigning each square one of 117 common
+     * colors.
+     * @param bitmap The Bitmap being compressed into a pixel grid.
+     * @return int[][][] The compressed pixel grid represented by a 2D grid of squares, each
+     * represented by a set of three integers, the red, green, and blue values of the color in
+     * that square.
+     */
+
     public int[][][] getPixelGrid(Bitmap bitmap) {
-        int height = (int)bitmap.getHeight()/30;
-        int width = (int)bitmap.getWidth()/30;
+        int height = bitmap.getHeight()/30;
+        int width = bitmap.getWidth()/30;
         int[][][] pixelGrid = new int[height][width][3];
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -226,7 +261,7 @@ public class PaintByNumbers extends AppCompatActivity {
                     }
                 }
                 int maxPos = 0;
-                for (int k = 1; k < 117; k++) {
+                for (int k = 1; k < commonColors.length; k++) {
                     if (colorCounts[k] > colorCounts[maxPos]) {
                         maxPos = k;
                     }
@@ -239,15 +274,11 @@ public class PaintByNumbers extends AppCompatActivity {
         return pixelGrid;
     }
 
-    public Bitmap clearImg(Bitmap bitmap) {
-        int height = bitmap.getHeight();
-        int width = bitmap.getWidth();
-        int[] pixels = new int[height*width];
-        Arrays.fill(pixels, Color.WHITE);
-        Bitmap ret = Bitmap.createBitmap(width, height, bitmap.getConfig());
-        ret.setPixels(pixels, 0, width, 0,0, width, height);
-        return ret;
-    }
+    /**
+     * Takes a pixel grid with 117 colors and finds the 13 most common colors in the grid.
+     * @param pixelGrid The given naive pixel grid.
+     * @return ArrayList<Integer> A list of at most 13 of the most common colors in the grid.
+     */
 
     public ArrayList<Integer> getMostCommonColors(int[][][] pixelGrid) {
         int[] colorCounts = new int[commonColors.length];
@@ -261,7 +292,7 @@ public class PaintByNumbers extends AppCompatActivity {
             }
         }
         TreeMap<Integer, Integer> sorted = new TreeMap<>();
-        for (int i = 0; i < 117; i++) {
+        for (int i = 0; i < commonColors.length; i++) {
             sorted.put(colorCounts[i], commonColors[i]);
         }
         ArrayList<Integer> mostCommonColors = new ArrayList<Integer>();
@@ -274,6 +305,13 @@ public class PaintByNumbers extends AppCompatActivity {
         }
         return mostCommonColors;
     }
+
+    /**
+     * Takes a naive pixel grid with at most 117 colors and converts it to a pixel grid with at most 13 colors.
+     * @param pixelGrid The naive pixel grid with at most 117 colors
+     * @param mostCommonColors The (up to) 13 most common colors in the grid.
+     * @return int[][][] A compressed pixel grid with at most 13 colors
+     */
 
     public int[][][] modifiedPixelGrid(int[][][] pixelGrid, ArrayList<Integer> mostCommonColors) {
         for (int i = 0; i < pixelGrid.length; i++) {
@@ -294,7 +332,7 @@ public class PaintByNumbers extends AppCompatActivity {
         return pixelGrid;
     }
 
-    View.OnTouchListener imgSourceOnTouchListener= new View.OnTouchListener(){
+    View.OnTouchListener screenSourceOnTouchListener= new View.OnTouchListener(){
 
         @Override
         public boolean onTouch(View view, MotionEvent event) {
@@ -310,8 +348,8 @@ public class PaintByNumbers extends AppCompatActivity {
             int rightInit = t.getRight();
             int topInit = t.getTop();
             int bottomInit = t.getBottom();
-            for (int i = 0; i < 34; i++) {
-                for (int j = 0; j < 25; j++) {
+            for (int i = 0; i < pixelGrid.length; i++) {
+                for (int j = 0; j < pixelGrid[i].length; j++) {
                     int left = leftInit + j*(rightInit - leftInit);
                     int right =  (j+1)*(rightInit - leftInit) ;
                     int top = topInit + i*(bottomInit - topInit);
@@ -351,5 +389,7 @@ public class PaintByNumbers extends AppCompatActivity {
 
             return true;
         }};
+
+
 
 }

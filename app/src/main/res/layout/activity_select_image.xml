@@ -35,17 +35,6 @@
                 android:textColor="@color/white"
                 android:textSize="24sp" />
 
-            <!--            <Button-->
-<!--                android:id="@+id/goals_button"-->
-<!--                style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:fontFamily="monospace"-->
-<!--                android:text="@string/goals_heading"-->
-<!--                android:textAlignment="textEnd"-->
-<!--                android:textColor="#FFFFFF"-->
-<!--                android:textSize="24sp" />-->
         </LinearLayout>
 
         <TextView
@@ -71,7 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:src="@drawable/penguinv2"
+                android:src="@drawable/farmcropped"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:clickable="true"
@@ -83,7 +72,7 @@
                 android:layout_width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:src="@drawable/koala"
+                android:src="@drawable/plainscropped"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:clickable="true"
@@ -95,7 +84,7 @@
                 android:layout_width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:src="@drawable/treecropped"
+                android:src="@drawable/sunflower"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:clickable="true"
@@ -107,7 +96,7 @@
                 android:layout_width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:src="@drawable/plainscropped"
+                android:src="@drawable/redpandacropped"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:clickable="true"
@@ -119,7 +108,7 @@
                 android:layout_width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:src="@drawable/redpandacropped"
+                android:src="@drawable/penguinv2"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:clickable="true"
@@ -131,7 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:src="@drawable/sunflower"
+                android:src="@drawable/koala"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:clickable="true"
@@ -143,7 +132,7 @@
                 android:layout_width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:src="@drawable/farmcropped"
+                android:src="@drawable/vintagecarcropped"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:clickable="true"
@@ -155,19 +144,13 @@
                 android:layout_width="0dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
-                android:src="@drawable/vintagecarcropped"
+                android:src="@drawable/treecropped"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:clickable="true"
                 android:focusable="true"
                 />
         </GridLayout>
-
-        <Button
-            android:id="@+id/testpaint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Go to paint testing" />
 
     </LinearLayout>
 </RelativeLayout>
