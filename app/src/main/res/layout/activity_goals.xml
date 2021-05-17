@@ -35,6 +35,18 @@
                 android:textColor="@color/white"
                 android:textSize="24sp" />
 
+            <Button
+                android:id="@+id/backtotimer"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Back To Timer"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_alignParentRight="true"/>
+
             <!--            <Button-->
             <!--                android:id="@+id/activi_button"-->
             <!--                style="@style/Widget.AppCompat.Button.Borderless.Colored"-->

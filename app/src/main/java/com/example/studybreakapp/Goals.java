@@ -35,6 +35,7 @@ public class Goals extends AppCompatActivity {
 
     private Button activity;
     private Button timeLeft;
+    private Button backToTimer;
 
     private TextView timerCountdown;
     private TextView timeNum;
@@ -82,6 +83,17 @@ public class Goals extends AppCompatActivity {
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+
+        backToTimer = findViewById(R.id.backtotimer);
+
+        backToTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Goals.this, StudyTime.class);
+                startActivity(intent);
+            }
+        });
+
 
         /**
          * Links the add goal button to the add goal activity

@@ -7,6 +7,29 @@
     android:layout_height="match_parent"
     tools:context="com.example.studybreakapp.PaintByNumbers">
 
+    <Button
+        android:id="@+id/time_left"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="Check Time Left"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/back_to_select_image"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="Done"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:layout_toRightOf="@+id/time_left"/>
+
     <android.widget.TableLayout
         android:id="@+id/PaintGrid"
         android:layout_width="375dp"
