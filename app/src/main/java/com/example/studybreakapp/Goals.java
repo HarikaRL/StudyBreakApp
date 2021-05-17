@@ -35,6 +35,7 @@ public class Goals extends AppCompatActivity {
 
     private Button activity;
     private Button timeLeft;
+    private Button backToTimer;
 
     private TextView timerCountdown;
     private TextView timeNum;
@@ -84,6 +85,20 @@ public class Goals extends AppCompatActivity {
             toast.show();
         }
 
+        backToTimer = findViewById(R.id.backtotimer);
+
+        backToTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Goals.this, StudyTime.class);
+                startActivity(intent);
+            }
+        });
+
+
+        /**
+         * Links the add goal button to the add goal activity
+         */
         FloatingActionButton buttonAddGoal = findViewById(R.id.button_add_goal);
         buttonAddGoal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +108,9 @@ public class Goals extends AppCompatActivity {
             }
         });
 
+        /**
+         * Handles the display incomplete goals (recyler view, adapter, view model)
+         */
         RecyclerView recyclerViewIncomplete = findViewById(R.id.recycler_view_incomplete);
         recyclerViewIncomplete.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewIncomplete.setHasFixedSize(true);
@@ -108,6 +126,9 @@ public class Goals extends AppCompatActivity {
             }
         });
 
+        /**
+         * Marks an incomplete goal as complete when swiped
+         */
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -122,7 +143,9 @@ public class Goals extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerViewIncomplete);
 
-
+        /**
+         * Handles the display of complete goals (recycler view, adapter, view model)
+         */
         RecyclerView recyclerViewComplete = findViewById(R.id.recycler_view_complete);
         recyclerViewComplete.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewComplete.setHasFixedSize(true);
@@ -140,6 +163,14 @@ public class Goals extends AppCompatActivity {
 
     }
 
+    /**
+     * When the add goal activity is exited, method inserts the new goal to the view model storing
+     * incomplete goals and displays a toast message saying "Goal added." If something went wrong
+     * with the add goal activity, method displays a toast message saying "Goal not added"
+     * @param requestCode the request code from the add goal activity
+     * @param resultCode the result code from the add goal activity
+     * @param data the intent data from the add goal activity
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -150,9 +181,9 @@ public class Goals extends AppCompatActivity {
             Goal goal = new Goal(text);
             goalViewModelIncomplete.insert(goal);
 
-            Toast.makeText(this, "Goal added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Goal Added", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Goal not added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Goal Not Added", Toast.LENGTH_SHORT).show();
         }
     }
 

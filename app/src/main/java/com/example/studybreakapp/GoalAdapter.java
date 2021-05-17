@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Goal adapter adapts goals to recycler view format
+ */
 public class GoalAdapter extends RecyclerView.Adapter<GoalAdapter.GoalHolder>{
     private List<Goal> goals = new ArrayList<>();
 
