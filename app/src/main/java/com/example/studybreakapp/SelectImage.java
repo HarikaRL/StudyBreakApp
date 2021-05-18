@@ -33,7 +33,11 @@ public class SelectImage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_image);
-        Log.d("created", "hello");
+
+        /*
+        The below code assigns variables to all necessary buttons and imageViews present in the
+        xml.
+         */
 
         timerCount = findViewById(R.id.time_left);
 
@@ -46,15 +50,11 @@ public class SelectImage extends AppCompatActivity {
         image7 = findViewById(R.id.image7);
         image8 = findViewById(R.id.image8);
 
-        Log.d("images found", "hello");
-        Log.d("image1", String.valueOf(image1));
-        Log.d("image1", String.valueOf(image2));
-        Log.d("image1", String.valueOf(image3));
-        Log.d("image1", String.valueOf(image4));
-        Log.d("image1", String.valueOf(image5));
-        Log.d("image1", String.valueOf(image6));
-        Log.d("image1", String.valueOf(image7));
-        Log.d("image1", String.valueOf(image8));
+        /*
+        The below 8 click listeners set a click listener for each image on the select image screen.
+        Each links to a separate method that starts the PaintByNumbers activity with the selected
+        image.
+         */
 
         image1.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -96,7 +96,13 @@ public class SelectImage extends AppCompatActivity {
             public void onClick(View v) { image8(); }
         });
 
-        SharedPreferences sharedPreferences = getSharedPreferences("SHARED_PREFS", Context.MODE_PRIVATE);
+        /*
+        The below code, copy-pasted from other files, allows the time to be checked during the
+        activity by creating a toast whenever a button is clicked.
+         */
+
+        SharedPreferences sharedPreferences = getSharedPreferences("SHARED_PREFS",
+                Context.MODE_PRIVATE);
         String oneMinute = sharedPreferences.getString("Value", "");
 
         timerCount.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +119,11 @@ public class SelectImage extends AppCompatActivity {
             }
         });
 
+        /*
+        The below code creates a toast that gives the user a warning when there is one minute
+        left in their break.
+         */
+
         if(oneMinute == "one")
         {
             Context context = getApplicationContext();
@@ -125,54 +136,90 @@ public class SelectImage extends AppCompatActivity {
     }
 
     /**
-     * method to move from the select image activity to the paint activity
+     * This method starts the PaintByNumbers activity and passes the information that image 1
+     * was selected, so that it can be loaded in the next activity.
      */
 
     private void image1() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
-        intent.putExtra("image", "1");
+        intent.putExtra("image", "1"); //Pass extra text to show image 1 was selected
         startActivity(intent);
     }
+
+    /**
+     * This method starts the PaintByNumbers activity and passes the information that image 2
+     * was selected, so that it can be loaded in the next activity.
+     */
 
     private void image2() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
-        intent.putExtra("image", "2");
+        intent.putExtra("image", "2"); //Pass extra text to show image 2 was selected
         startActivity(intent);
     }
+
+    /**
+     * This method starts the PaintByNumbers activity and passes the information that image 3
+     * was selected, so that it can be loaded in the next activity.
+     */
 
     private void image3() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
-        intent.putExtra("image", "3");
+        intent.putExtra("image", "3"); //Pass extra text to show image 3 was selected
         startActivity(intent);
     }
+
+    /**
+     * This method starts the PaintByNumbers activity and passes the information that image 4
+     * was selected, so that it can be loaded in the next activity.
+     */
 
     private void image4() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
-        intent.putExtra("image", "4");
+        intent.putExtra("image", "4"); //Pass extra text to show image 4 was selected
         startActivity(intent);
     }
+
+    /**
+     * This method starts the PaintByNumbers activity and passes the information that image 5
+     * was selected, so that it can be loaded in the next activity.
+     */
 
     private void image5() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
-        intent.putExtra("image", "6");
+        intent.putExtra("image", "5"); //Pass extra text to show image 5 was selected
         startActivity(intent);
     }
+
+    /**
+     * This method starts the PaintByNumbers activity and passes the information that image 6
+     * was selected, so that it can be loaded in the next activity.
+     */
 
     private void image6() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
-        intent.putExtra("image", "6");
+        intent.putExtra("image", "6"); //Pass extra text to show image 6 was selected
         startActivity(intent);
     }
+
+    /**
+     * This method starts the PaintByNumbers activity and passes the information that image 7
+     * was selected, so that it can be loaded in the next activity.
+     */
 
     private void image7() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
-        intent.putExtra("image", "7");
+        intent.putExtra("image", "7"); //Pass extra text to show image 7 was selected
         startActivity(intent);
     }
 
+    /**
+     * This method starts the PaintByNumbers activity and passes the information that image 8
+     * was selected, so that it can be loaded in the next activity.
+     */
+
     private void image8() {
         Intent intent = new Intent(SelectImage.this, PaintByNumbers.class);
-        intent.putExtra("image", "8");
+        intent.putExtra("image", "8"); //Pass extra text to show image 8 was selected
         startActivity(intent);
     }
 }
