@@ -24,16 +24,29 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/time_left"
-            style="@style/Widget.AppCompat.Button.Borderless.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:text="Check Time Left"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+            <Button
+                android:id="@+id/time_left"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Check Time Left"
+                android:textColor="@color/black"
+                android:layout_gravity="left"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/backToSelectImage"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_gravity="right"
+                android:fontFamily="monospace"
+                android:text="Return to Select Image"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
     </LinearLayout>
 
