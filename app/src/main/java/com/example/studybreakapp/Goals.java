@@ -1,14 +1,24 @@
 package com.example.studybreakapp;
 
+// Credit to Coding in Flow (https://www.youtube.com/playlist?list=PLrnPJCHvNZuDihTpkRs6SpZhqgBqPU118)
+// for help with Room, SQL, and RecyclerView implementation
+
+// Credit to Computer Tech (https://www.youtube.com/playlist?list=PLrnPJCHvNZuDihTpkRs6SpZhqgBqPU118)
+// for help with the pop-up window
+
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.content.SharedPreferences;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -23,6 +33,8 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import android.view.LayoutInflater;
+import android.util.Log;
 
 
 public class Goals extends AppCompatActivity {
@@ -91,6 +103,17 @@ public class Goals extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Goals.this, StudyTime.class);
                 startActivity(intent);
+            }
+        });
+
+        /**
+         * Controls help button to launch pop-up window
+         */
+        FloatingActionButton helpButton = findViewById(R.id.button_goals_help);
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPopUpWindow();
             }
         });
 
@@ -184,6 +207,11 @@ public class Goals extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Goal Not Added", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void openPopUpWindow() {
+        Intent help_popup = new Intent(Goals.this, GoalsHelp.class);
+        startActivity(help_popup);
     }
 
 }
