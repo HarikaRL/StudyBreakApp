@@ -91,7 +91,7 @@ public class PaintByNumbers extends AppCompatActivity {
         setContentView(R.layout.activity_paint_by_numbers);
         imgBeingPainted = findViewById(R.id.ImgBeingPainted);
         timeLeft = findViewById(R.id.time_left);
-        backToSelectImg = findViewById(R.id.back_to_select_image);
+        backToSelectImg = findViewById(R.id.backToSelectImage);
 
         SharedPreferences sharedPreferences = getSharedPreferences("SHARED_PREFS",
                 Context.MODE_PRIVATE);
@@ -242,6 +242,7 @@ public class PaintByNumbers extends AppCompatActivity {
                 }
             }
         }
+        autoFill();
     }
 
     /**
