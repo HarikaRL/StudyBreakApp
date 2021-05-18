@@ -18,6 +18,25 @@
         android:layout_marginBottom="200dp"
         android:weightSum="25"></android.widget.TableLayout>
 
+    <LinearLayout
+        android:id="@+id/navigation_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/time_left"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="Check Time Left"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/ImgBeingPainted"
         android:layout_width="375dp"

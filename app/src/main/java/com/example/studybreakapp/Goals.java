@@ -97,26 +97,16 @@ public class Goals extends AppCompatActivity {
             toast.show();
         }
 
-        backToTimer = findViewById(R.id.backtotimer);
-
-        backToTimer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Goals.this, StudyTime.class);
-                startActivity(intent);
-            }
-        });
-
-        /**
-         * Controls help button to launch pop-up window
-         */
-        FloatingActionButton helpButton = findViewById(R.id.button_goals_help);
-        helpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openPopUpWindow();
-            }
-        });
+//        /**
+//         * Controls help button to launch pop-up window
+//         */
+//        FloatingActionButton helpButton = findViewById(R.id.button_goals_help);
+//        helpButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openPopUpWindow();
+//            }
+//        });
 
 
         /**

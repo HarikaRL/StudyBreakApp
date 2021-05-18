@@ -56,8 +56,8 @@
             >
             <ImageView
                 android:id="@+id/image1"
-                android:layout_height="0dp"
-                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:src="@drawable/farmcropped"
@@ -68,8 +68,8 @@
                 />
             <ImageView
                 android:id="@+id/image2"
-                android:layout_height="0dp"
-                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:src="@drawable/plainscropped"
@@ -80,8 +80,8 @@
                 />
             <ImageView
                 android:id="@+id/image3"
-                android:layout_height="0dp"
-                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:src="@drawable/sunflower"
@@ -92,8 +92,8 @@
                 />
             <ImageView
                 android:id="@+id/image4"
-                android:layout_height="0dp"
-                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:src="@drawable/redpandacropped"
@@ -104,8 +104,8 @@
                 />
             <ImageView
                 android:id="@+id/image5"
-                android:layout_height="0dp"
-                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:src="@drawable/penguinv2"
@@ -116,8 +116,8 @@
                 />
             <ImageView
                 android:id="@+id/image6"
-                android:layout_height="0dp"
-                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:src="@drawable/koala"
@@ -128,8 +128,8 @@
                 />
             <ImageView
                 android:id="@+id/image7"
-                android:layout_height="0dp"
-                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:src="@drawable/vintagecarcropped"
@@ -140,8 +140,8 @@
                 />
             <ImageView
                 android:id="@+id/image8"
-                android:layout_height="0dp"
-                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_width="100dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:src="@drawable/treecropped"
