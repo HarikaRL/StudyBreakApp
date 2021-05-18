@@ -3,7 +3,6 @@
     package="com.example.studybreakapp">
 
     <application
-        android:name=".Controller"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@mipmap/app_icon_mindful_productivity"
@@ -13,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyBreakApp">
         <activity android:name=".AddGoalActivity"></activity>
+        <activity android:name=".GoalsHelp"
+            android:theme="@style/Theme.StudyBreakApp.popUpTheme"
+            ></activity>
         <activity android:name=".BreakTime" />
         <activity android:name=".SelectImage" />
         <activity android:name=".StudyTime" />

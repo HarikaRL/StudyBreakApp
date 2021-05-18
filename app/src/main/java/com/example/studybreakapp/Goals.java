@@ -97,16 +97,16 @@ public class Goals extends AppCompatActivity {
             toast.show();
         }
 
-//        /**
-//         * Controls help button to launch pop-up window
-//         */
-//        FloatingActionButton helpButton = findViewById(R.id.button_goals_help);
-//        helpButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                openPopUpWindow();
-//            }
-//        });
+        /**
+         * Controls help button to launch pop-up window
+         */
+        FloatingActionButton helpButton = findViewById(R.id.button_goals_help);
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPopUpWindow();
+            }
+        });
 
 
         /**

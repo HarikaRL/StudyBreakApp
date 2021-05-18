@@ -35,30 +35,19 @@
                 android:textColor="@color/white"
                 android:textSize="24sp" />
 
-<!--            <Button-->
-<!--                android:id="@+id/backtotimer"-->
-<!--                style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="monospace"-->
-<!--                android:text="Back To Timer"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="24sp"-->
-<!--                android:layout_alignParentRight="true"/>-->
+            <Button
+                android:id="@+id/backtotimer"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:text="Back To Timer"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:layout_alignParentRight="true"/>
 
-            <!--            <Button-->
-            <!--                android:id="@+id/activi_button"-->
-            <!--                style="@style/Widget.AppCompat.Button.Borderless.Colored"-->
-            <!--                android:layout_width="178dp"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:layout_centerHorizontal="true"-->
-            <!--                android:layout_weight="1"-->
-            <!--                android:fontFamily="monospace"-->
-            <!--                android:text="@string/activity_label"-->
-            <!--                android:textAlignment="textEnd"-->
-            <!--                android:textColor="@color/white"-->
-            <!--                android:textSize="24sp" />-->
+
         </LinearLayout>
 
         <TextView
@@ -74,56 +63,30 @@
 
         <LinearLayout
             android:id="@+id/image_layout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:orientation="horizontal">
 
-            <!--
-            <LinearLayout
-                android:id="@+id/cloud_layer1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/blankCloud2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/cloud"
-                    app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview" />
-
-                <ImageView
-                    android:id="@+id/filledCloud2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:contentDescription="@string/cloud"
-                    app:srcCompat="@drawable/screen_shot_2021_04_05_at_11_45_16_am_removebg_preview__4_" />
-
-            </LinearLayout>
-            -->
-
-            <TextView
-                android:id="@+id/goals_tips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button_goals_help"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                app:fabCustomSize="46dp"
                 android:layout_margin="5dp"
-                android:fontFamily="monospace"
-                android:text="Swipe goals to complete"
-                android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:backgroundTint="#673AB7"
+                android:src="@drawable/ic_help"
+                app:tint="@null"/>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/button_add_goal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                app:fabCustomSize="46dp"
                 android:layout_margin="5dp"
                 android:backgroundTint="#673AB7"
-                android:foreground="@drawable/ic_add"
-                android:src="@drawable/ic_add" />
+                android:src="@drawable/ic_add"
+                app:tint="@null"/>
 
         </LinearLayout>
 
