@@ -5,15 +5,16 @@
     <application
         android:name=".Controller"
         android:allowBackup="true"
-        android:hardwareAccelerated="false"
         android:icon="@mipmap/app_icon_mindful_productivity"
         android:label="@string/app_name"
-        android:largeHeap="true"
+        android:largeHeap="false"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StudyBreakApp"
-        android:largeHeap="false">
-        <activity android:name=".AddGoalActivity"></activity>
+        android:theme="@style/Theme.StudyBreakApp">
+        <activity android:name=".GoalsHelp"
+            android:theme="@style/Theme.StudyBreakApp.popUpTheme"
+            ></activity>
+        <activity android:name=".AddGoalActivity" />
         <activity android:name=".BreakTime" />
         <activity android:name=".SelectImage" />
         <activity android:name=".StudyTime" />
