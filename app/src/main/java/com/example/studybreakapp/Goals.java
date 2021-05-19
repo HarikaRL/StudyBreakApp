@@ -47,7 +47,6 @@ public class Goals extends AppCompatActivity {
 
     private Button activity;
     private Button timeLeft;
-    private Button backToTimer;
 
     private TextView timerCountdown;
     private TextView timeNum;
