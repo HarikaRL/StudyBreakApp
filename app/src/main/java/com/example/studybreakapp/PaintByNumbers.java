@@ -128,7 +128,7 @@ public class PaintByNumbers extends AppCompatActivity {
         The below code provides a one-minute warning to the user through a toast.
          */
 
-        if(oneMinute == "one")
+        if(oneMinute.equals("one"))
         {
             Context context = getApplicationContext();
             CharSequence text = "One minute remaining.";
@@ -242,7 +242,6 @@ public class PaintByNumbers extends AppCompatActivity {
                 }
             }
         }
-        autoFill();
     }
 
     /**

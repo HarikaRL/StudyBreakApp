@@ -87,7 +87,7 @@ public class Goals extends AppCompatActivity {
         });
 
         String oneMinute = prefsNew.getString("timeL", "");
-        if(oneMinute == "one")
+        if(oneMinute.equals("one"));
         {
             Context context = getApplicationContext();
             CharSequence text = "One minute remaining.";

@@ -124,7 +124,7 @@ public class SelectImage extends AppCompatActivity {
         left in their break.
          */
 
-        if(oneMinute == "one")
+        if(oneMinute.equals("one"))
         {
             Context context = getApplicationContext();
             CharSequence text = "One minute remaining.";
